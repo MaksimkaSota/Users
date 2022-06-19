@@ -1,0 +1,12 @@
+.text-muted {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-text {
+  font-size: 12px;
+}
+
+.title {
+  font-weight: 700;
+}
