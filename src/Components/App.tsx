@@ -2,19 +2,21 @@ import React, { useState } from 'react';
 import './App.css';
 import ButtonState from './Buttons/ButtonState/ButtonState';
 import ButtonProps from './Buttons/ButtonProps/ButtonProps';
-import Counter from './Buttons/Counter/Counter';
-import UserCards from './Users/UserCards';
+import NavBar from './NavBar/NavBar';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './AppRoutes';
 
 function App() {
   const [text, setText] = useState('text for props Button');
   return (
-    <div className="App">
-      {/*<h1>I am React Application</h1>*/}
-      {/*<Counter/>*/}
-      {/*<ButtonState/>*/}
-      {/*<ButtonProps color="black" setText={setText}>{text}</ButtonProps>*/}
-      <UserCards/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        {/*<ButtonState/>*/}
+        {/*<ButtonProps color="black" setText={setText}>{text}</ButtonProps>*/}
+        <NavBar/>
+        <AppRoutes/>
+      </div>
+    </BrowserRouter>
   );
 }
 

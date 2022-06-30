@@ -10,3 +10,50 @@
 .title {
   font-weight: 700;
 }
+
+.buttonGetUsers {
+  background-color: #e7e7e7;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  transition: all 0.3s linear;
+}
+
+.buttonGetUsers:hover {
+  background-color: #c7c7c7;
+  cursor: pointer;
+}
+
+.buttonDeleteUser {
+  background-color: white;
+  border: 2px solid #e7e7e7;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: all 0.3s  linear;
+}
+
+.buttonDeleteUser:hover {
+  background-color: #eaeaea;
+  border: 2px solid #b2b2b2;
+  cursor: pointer;
+}
+
+.form-add-users {
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+  padding: 16px;
+}
+
+.input-group-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-control {
+  width: 50%;
+}
