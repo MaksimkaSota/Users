@@ -35,7 +35,7 @@ const UserCard = () => {
       website: 'mister-max.com'
     }
     http.put(`users/${id}`, data).then(res => {
-      setUser(data);
+      setUser(res.data);
     }).catch(err => {
       console.log(err);
     })

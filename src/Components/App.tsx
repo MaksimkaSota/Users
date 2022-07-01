@@ -5,18 +5,25 @@ import ButtonProps from './Buttons/ButtonProps/ButtonProps';
 import NavBar from './NavBar/NavBar';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
+import Context from '../Context/context';
+import Modal from './Modal/Modal';
+
 
 function App() {
-  const [text, setText] = useState('text for props Button');
+  const [isAuth, setIsAuth] = useState(false);
+  const  [openModal, setOpenModal] = useState(false);
   return (
-    <BrowserRouter>
-      <div className="App">
-        {/*<ButtonState/>*/}
-        {/*<ButtonProps color="black" setText={setText}>{text}</ButtonProps>*/}
-        <NavBar/>
-        <AppRoutes/>
-      </div>
-    </BrowserRouter>
+    <Context.Provider value ={{isAuth, setIsAuth}}>
+      <BrowserRouter>
+        <div className="App">
+          {/*<ButtonState/>*/}
+          {/*<ButtonProps color="black" setText={setText}>{text}</ButtonProps>*/}
+          <NavBar  setOpenModal={() => setOpenModal(true)}/>
+          <Modal openModal={openModal} setOpenModal={() => setOpenModal(false)}/>
+          <AppRoutes/>
+        </div>
+      </BrowserRouter>
+    </Context.Provider>
   );
 }
 
