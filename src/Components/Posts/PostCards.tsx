@@ -3,7 +3,7 @@ import { IPost } from './IPost';
 
 const PostCards = ({ posts, deletePost, updatePost }: { posts: IPost[], deletePost: (id: number) => void, updatePost: (id: number) => void }) => {
   return (
-    <div className='row row-cols-1 row-cols-md-3 g-4'>
+    <div className='row row-cols-1 row-cols-md-3 g-4 w-100 m-auto'>
       {
         posts.length && posts.map(post =>
           <div className='col' key={post.id}>

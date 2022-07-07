@@ -14,7 +14,7 @@ const UserCard = () => {
   }
 
   const [user, setUser] = useState<IUser>(initialValue);
-  const {id} = useParams();
+  const { id } = useParams();
 
   const  getUsers = () => {
     http.get(`users/${id}`).then(res => {
