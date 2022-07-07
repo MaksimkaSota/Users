@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import ButtonState from './Buttons/ButtonState/ButtonState';
 import ButtonProps from './Buttons/ButtonProps/ButtonProps';
@@ -11,9 +11,17 @@ import Modal from './Modal/Modal';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuth(true);
+    }
+  });
+
   const  [openModal, setOpenModal] = useState(false);
   return (
-    <Context.Provider value ={{isAuth, setIsAuth}}>
+    <Context.Provider value ={{isAuth, setIsAuth, setOpenModal}}>
       <BrowserRouter>
         <div className="App">
           {/*<ButtonState/>*/}

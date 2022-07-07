@@ -10,8 +10,8 @@ const Auth = () => {
     username: userName,
     password: password
   }
-
   // username: 'mor_2314', password: '83r5^_'
+
   const getUserName = (value: string) => {
     setUserName(value);
   }
@@ -19,20 +19,20 @@ const Auth = () => {
     setPassword(value);
   }
 
-  // 2. After success request change setIsAuth: true;
-  const { setIsAuth } = useContext(Context);
+  const { setIsAuth, setOpenModal } = useContext(Context);
 
+  const JSON_URL = 'https://fakestoreapi.com/auth/login';
   const login = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    http.post('https://fakestoreapi.com/auth/login', loginData).then(res => {
+    http.post(JSON_URL, loginData).then(res => {
+      localStorage.setItem('token', res.data.token);
       setIsAuth(true);
-      console.log(res);
-      console.log(res.data.token);
     }).catch(err => {
       setIsAuth(false);
-      console.log(err);
     })
+    setOpenModal(false);
   }
+
   return (
     <form onSubmit={(event) => login(event)}>
       <div className="mb-3">
@@ -53,7 +53,6 @@ const Auth = () => {
       </div>
       <button type="submit" className='btn btn-primary'>Login</button>
     </form>
-
   );
 };
 

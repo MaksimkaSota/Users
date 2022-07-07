@@ -5,15 +5,14 @@ import http from '../http';
 import Spinner from '../Components/spinner/spinner';
 import AddUser from '../Components/Users/AddUser';
 import { useSearch } from '../Hooks/useSearch';
+import SearchUser from '../Components/Users/SearchUser';
 
 
 const Users = () => {
   const [showUserForm, setShowUserForm] = useState(false);
   const [users, setUsers] = useState<IUser[]>([]);
   const [search, setSearch] = useState('');
-
   const searchedUsers = useSearch(users, search);
-  //1. take  out search component
 
   const deleteUser = (id?: number) => {
     const isDelete = confirm('Delete this user?');
@@ -45,14 +44,7 @@ const Users = () => {
     <div>
       <div className="container mt-5">
         <h1 className="mb-2">Users</h1>
-        <div className="input-group mb-3">
-          <span className="input-group-text" id="basic-addon1">Search</span>
-          <input type="text"
-                 className="form-control"
-                 placeholder="Name"
-                 onChange={(event) => setSearch(event.target.value)}
-          />
-        </div>
+        <SearchUser setSearch={setSearch}/>
         <button className="buttonGetUsers mb-3" onClick={() => setShowUserForm(!showUserForm)}>Add user</button>
         { showUserForm &&  <AddUser users={users} setUsers={setUsers}/> }
       </div>

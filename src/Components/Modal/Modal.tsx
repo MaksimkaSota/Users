@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import Auth from '../Auth/Auth';
 
-const Modal = ({openModal, setOpenModal}: {openModal: boolean, setOpenModal: Dispatch<SetStateAction<boolean>>}) => {
+const Modal = ({openModal, setOpenModal, footer}: {openModal: boolean, setOpenModal: Dispatch<SetStateAction<boolean>>, footer?: boolean}) => {
   return (
     <div className={`modal ${openModal && 'd-block'}`}>
       <div className="modal-dialog">
@@ -18,10 +18,10 @@ const Modal = ({openModal, setOpenModal}: {openModal: boolean, setOpenModal: Dis
           <div className="modal-body">
             <Auth/>
           </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={() => setOpenModal(true)}>Close</button>
-            <button type="button" className="btn btn-primary">Save changes</button>
-          </div>
+          {footer && <div className='modal-footer'>
+            <button type='button' className='btn btn-secondary' onClick={() => setOpenModal(true)}>Close</button>
+            <button type='button' className='btn btn-primary'>Save changes</button>
+          </div>}
         </div>
       </div>
     </div>
