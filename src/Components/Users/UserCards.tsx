@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const UserCards = ({ users, deleteUser }: { users: IUser[], deleteUser: (id?: number) => void }) => {
 
   return (
-    <div className='row row-cols-1 row-cols-md-3 g-4'>
+    <div className='row row-cols-1 row-cols-md-3 g-4 w-100 m-auto'>
       {
         users.length && users.map(user =>
           <div className='col' key={user.id}>
