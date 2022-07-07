@@ -3,14 +3,15 @@ import http from '../../http'
 import Context from '../../Context/context';
 
 const Auth = () => {
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  // username: 'mor_2314', password: '83r5^_' Подставлены сразу, что бы сократить время на проверку работы приложения
+  const [userName, setUserName] = useState('mor_2314');
+  const [password, setPassword] = useState('83r5^_');
 
   const loginData = {
     username: userName,
     password: password
   }
-  // username: 'mor_2314', password: '83r5^_'
+
 
   const getUserName = (value: string) => {
     setUserName(value);
@@ -27,10 +28,8 @@ const Auth = () => {
     http.post(JSON_URL, loginData).then(res => {
       localStorage.setItem('token', res.data.token);
       setIsAuth(true);
-    }).catch(err => {
-      setIsAuth(false);
+      setOpenModal(false);
     })
-    setOpenModal(false);
   }
 
   return (
@@ -41,6 +40,7 @@ const Auth = () => {
                className="form-control m-auto"
                id="exampleInputEmail1"
                onChange={(event) => getUserName(event.target.value)}
+               value={userName}
         />
       </div>
       <div className="mb-3 ">
@@ -49,9 +49,10 @@ const Auth = () => {
                className="form-control m-auto"
                id="exampleInputPassword1"
                onChange={(event) => getPassword(event.target.value)}
+               value={password}
         />
       </div>
-      <button type="submit" className='btn btn-primary'>Login</button>
+      <button type="submit" className='btn btn-secondary'>Login</button>
     </form>
   );
 };

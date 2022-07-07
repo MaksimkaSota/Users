@@ -16,22 +16,22 @@ const NavBar = ({ setOpenModal }: { setOpenModal: Dispatch<SetStateAction<boolea
             <>
               <ul className='navbar-nav w-100 mb-2 mb-lg-0'>
                 <li className='nav-item'>
-                  <Link to='users' className='nav-link active'>Users</Link>
+                  <Link to='users' className='nav-link'>Users</Link>
                 </li>
                 <li className='nav-item'>
                   <Link to='posts' className='nav-link'>Posts</Link>
                 </li>
               </ul>
-              <button className='btn btn-primary' onClick={() => logout()}>Logout</button>
+              <button className='btn btn-secondary' onClick={() => logout()}>Logout</button>
             </>
             :
             <>
-              <ul>
+              <ul className='navbar-nav w-100 mb-2 mb-lg-0'>
                 <li className='nav-item'>
                   <Link to='posts' className='nav-link'>Posts</Link>
                 </li>
               </ul>
-              <button className='btn btn-primary' onClick={() => setOpenModal(true)}>Login</button>
+              <button className='btn btn-secondary' onClick={() => setOpenModal(true)}>Login</button>
             </>
           }
       </div>

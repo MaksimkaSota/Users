@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import Auth from '../Auth/Auth';
 
+//Логика с footer возможно лишняя!?
 const Modal = ({openModal, setOpenModal, footer}: {openModal: boolean, setOpenModal: Dispatch<SetStateAction<boolean>>, footer?: boolean}) => {
   return (
     <div className={`modal ${openModal && 'd-block'}`}>
@@ -20,7 +21,7 @@ const Modal = ({openModal, setOpenModal, footer}: {openModal: boolean, setOpenMo
           </div>
           {footer && <div className='modal-footer'>
             <button type='button' className='btn btn-secondary' onClick={() => setOpenModal(true)}>Close</button>
-            <button type='button' className='btn btn-primary'>Save changes</button>
+            <button type='button' className='btn btn-secondary'>Save changes</button>
           </div>}
         </div>
       </div>

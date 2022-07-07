@@ -1,7 +1,6 @@
 import React from 'react';
 import './UserCards.css';
 import { IUser } from './IUser';
-import Spinner from '../spinner/spinner';
 import { Link } from 'react-router-dom';
 
 const UserCards = ({ users, deleteUser }: { users: IUser[], deleteUser: (id?: number) => void }) => {
