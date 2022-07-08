@@ -13,7 +13,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path='*' element={<Users />} />
         <Route path='users' element={<Users />} />
-        <Route path='/:id' element={<User />} /> {/* для корректной работы на GitPages из-за HashRouter # */}
+        <Route path='/:id' element={<User />} /> {/* для корректной работы на GitPages из-за HashRouter */}
         <Route path='users/:id' element={<User />} /> {/* для корректной работы на localhost */}
         <Route path='posts' element={<Posts />} />
       </Routes>
