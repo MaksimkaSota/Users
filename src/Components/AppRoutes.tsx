@@ -7,21 +7,18 @@ import Context from '../Context/context';
 
 const AppRoutes = () => {
   const { isAuth } = useContext(Context);
-  return (
-    isAuth
-      ?
-      <Routes>
-        <Route path='*' element={<Users />} />
-        <Route path='users' element={<Users />} />
-        <Route path='/:id' element={<User />} /> {/* для корректной работы на GitPages из-за HashRouter */}
-        <Route path='users/:id' element={<User />} /> {/* для корректной работы на localhost */}
-        <Route path='posts' element={<Posts />} />
-      </Routes>
-      :
-      <Routes>
-        <Route path='*' element={<Posts />} />
-        <Route path='posts' element={<Posts />} />
-      </Routes>
+  return isAuth ? (
+    <Routes>
+      <Route element={<Users />} path="*" />
+      <Route element={<Users />} path="users" />
+      <Route element={<User />} path="users/:id" />
+      <Route element={<Posts />} path="posts" />
+    </Routes>
+  ) : (
+    <Routes>
+      <Route element={<Posts />} path="*" />
+      <Route element={<Posts />} path="posts" />
+    </Routes>
   );
 };
 

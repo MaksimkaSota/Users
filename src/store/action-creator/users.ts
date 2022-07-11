@@ -1,6 +1,7 @@
 import http from '../../http';
 import { Dispatch } from 'redux';
 import { UserActionType, UsersAction } from '../types/users';
+import { useParams } from 'react-router-dom';
 
 export const getUsers = () => {
   return async (dispatch: Dispatch<UsersAction>) => {
@@ -8,3 +9,4 @@ export const getUsers = () => {
     dispatch({ type: UserActionType.GET_USERS, payload: response.data })
   }
 }
+
