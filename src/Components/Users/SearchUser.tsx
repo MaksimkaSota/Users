@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { IUser } from './IUser';
 
 const SearchUser = ({ setSearch }: { setSearch: Dispatch<SetStateAction<string>> }) => {
   return (

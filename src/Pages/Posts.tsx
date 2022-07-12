@@ -44,6 +44,11 @@ const Posts = () => {
     });
   };
 
+  // const  getPosts = async () => {
+  //   const posts: {data: IPost[]} = await http.get('posts');
+  //   setPosts(posts.data);
+  // }
+
   useEffect(() => {
     getPosts();
   }, []);

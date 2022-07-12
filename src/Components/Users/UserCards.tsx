@@ -3,13 +3,7 @@ import './UserCards.css';
 import { IUser } from './IUser';
 import { Link } from 'react-router-dom';
 
-const UserCards = ({
-  users,
-}: // deleteUser
-{
-  users: IUser[];
-  // deleteUser: (id?: number) => void
-}) => {
+const UserCards = ({ users, deleteUser }: { users: IUser[]; deleteUser(id?: number): void }) => {
   return (
     <div className="row row-cols-1 row-cols-md-3 g-4 w-100 m-auto">
       {users.length &&
@@ -35,10 +29,7 @@ const UserCards = ({
               </div>
               <div className="card-footer">
                 <small className="text-muted">
-                  <button
-                    className="buttonDeleteUser"
-                    // onClick={() => deleteUser(user.id)}
-                  >
+                  <button className="buttonDeleteUser" onClick={() => deleteUser(user.id)}>
                     Delete user
                   </button>
                 </small>

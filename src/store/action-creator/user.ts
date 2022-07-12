@@ -1,10 +1,10 @@
 import { Dispatch } from 'redux';
-import { UserActionType, UsersAction } from '../types/users';
+import { UserActionType, UserAction } from '../types/user';
 import http from '../../http';
 
 export const getUser = (id?: string) => {
-  return async (dispatch: Dispatch<UsersAction>) => {
+  return async (dispatch: Dispatch<UserAction>) => {
     const response = await http.get(`users/${id}`);
-    dispatch({ type: UserActionType.GET_USER, payload: response.data })
-  }
-}
+    dispatch({ type: UserActionType.GET_USER, payload: response.data });
+  };
+};

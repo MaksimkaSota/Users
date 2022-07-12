@@ -1,29 +1,28 @@
 import { IUser } from '../../Components/Users/IUser';
 
 export interface UsersState {
-  users: [];
+  users: IUser[];
 }
 
-export interface UserState {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  user: IUser;
-}
-
-export enum UserActionType {
+export enum UsersActionType {
   GET_USERS = 'GET_USERS',
-  GET_USER = 'GET_USER'
+  DELETE_USER = 'DELETE_USER',
+  ADD_USER = 'ADD_USER',
 }
 
 interface GetUsersAction {
-  type: UserActionType.GET_USERS
-  payload: [];
+  type: UsersActionType.GET_USERS;
+  payload: IUser[];
 }
 
-interface GetUserAction {
-  type: UserActionType.GET_USER
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  payload: IUser;
+interface DeleteUsersAction {
+  type: UsersActionType.DELETE_USER;
+  payload: IUser[];
 }
 
-export type UsersAction = GetUsersAction |  GetUserAction ;
+interface AddUsersAction {
+  type: UsersActionType.ADD_USER;
+  payload: IUser[];
+}
 
+export type UsersAction = GetUsersAction | DeleteUsersAction | AddUsersAction;

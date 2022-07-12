@@ -1,56 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { IUser } from '../Users/IUser';
-import { useParams } from 'react-router-dom';
-import http from '../../http';
-import { useActions } from '../../Hooks/useActions';
-import { useTypedSelector } from '../../Hooks/useTypeSelector';
 
-const UserCard = ( {
-                     user,
-                     // deleteUser
-                   }: {
-  user: IUser,
-  // deleteUser: (id?: number) => void
-}) => {
-
-  // const initialValue: IUser = {
-  //   name: '',
-  //   username: '',
-  //   email: '',
-  //   phone: '',
-  //   website: ''
-  // }
-
-
-
-
-  // const [user, setUser] = useState<IUser>(initialValue);
-  // const { id } = useParams();
-  //
-  // const  getUsers = () => {
-  //   http.get(`users/${id}`).then(res => {
-  //     setUser(res.data);
-  //   })
-  // }
-
-
-
-
-  // const updateUser = (id?: number) => {
-  //   const data = {
-  //     name: 'Max',
-  //     username: 'Maximus',
-  //     email: 'Maximus@gmail.com',
-  //     phone: '+375297777777',
-  //     website: 'mister-max.com'
-  //   }
-  //   http.put(`users/${id}`, data).then(res => {
-  //     setUser(res.data);
-  //   }).catch(err => {
-  //     console.log(err);
-  //   })
-  // }
-
+const UserCard = ({ user, updateUser }: { user: IUser; updateUser(id?: number): void }) => {
   return (
     <div className="col-4 row-3 m-auto mt-3">
       <div className="col">
@@ -72,7 +23,9 @@ const UserCard = ( {
           </div>
           <div className="card-footer">
             <small className="text-muted">
-              <button className="buttonDeleteUser" >Update user</button>
+              <button className="buttonDeleteUser" onClick={() => updateUser(user.id)}>
+                Update user
+              </button>
             </small>
           </div>
         </div>
