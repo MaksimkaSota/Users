@@ -4,7 +4,6 @@ import http from '../../http';
 import { initialValue } from './InitialValue';
 import { useDispatch } from 'react-redux';
 import { UsersActionType } from '../../store/types/users';
-import { UserActionType } from '../../store/types/user';
 
 const AddUser = ({ users }: { users: IUser[] }) => {
   const [value, setValue] = useState<IUser>(initialValue);

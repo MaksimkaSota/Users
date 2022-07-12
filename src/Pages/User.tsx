@@ -6,12 +6,10 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import http from '../http';
 import { UserActionType } from '../store/types/user';
-import { UsersActionType } from '../store/types/users';
 
 const User = () => {
   const { id } = useParams();
   const { user } = useTypedSelector((state) => state.user);
-  const { users } = useTypedSelector((state) => state.users);
   const { getUser } = useActions();
 
   useEffect(() => {

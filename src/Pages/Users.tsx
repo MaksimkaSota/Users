@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import UserCards from '../Components/Users/UserCards';
-import { IUser } from '../Components/Users/IUser';
 import http from '../http';
 import Spinner from '../Components/spinner/spinner';
 import AddUser from '../Components/Users/AddUser';
