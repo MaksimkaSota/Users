@@ -1,11 +1,8 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { IUser } from './IUser';
-import http from '../../http';
 import { initialValue } from './InitialValue';
-import { useDispatch } from 'react-redux';
-import { UsersActionType } from '../../store/types/users';
 
-const AddUser = ({ users }: { users: IUser[] }) => {
+const AddUser = ({ addUser }: { addUser(event: FormEvent<HTMLFormElement>, value: IUser): void }) => {
   const [value, setValue] = useState<IUser>(initialValue);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -13,17 +10,14 @@ const AddUser = ({ users }: { users: IUser[] }) => {
     setValue({ ...value, [field]: event.target.value });
   };
 
-  const dispatch = useDispatch();
-  const addUser = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    http.post('users', value).then((res) => {
-      dispatch({ type: UsersActionType.ADD_USER, payload: [...users, res.data] });
-      setValue(initialValue);
-    });
-  };
-
   return (
-    <form className="col-4 m-auto mb-3 form-add-users" onSubmit={(event) => addUser(event)}>
+    <form
+      className="col-4 m-auto mb-3 form-add-users"
+      onSubmit={(event) => {
+        addUser(event, value);
+        setValue(initialValue);
+      }}
+    >
       {Object.keys(initialValue).map((field) => (
         <div className="mb-3 input-group-text" key={field}>
           <label htmlFor={field} className="form-label mb-0">

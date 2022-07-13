@@ -17,12 +17,12 @@ interface GetUsersAction {
 
 interface DeleteUsersAction {
   type: UsersActionType.DELETE_USER;
-  payload: IUser[];
+  payload?: number;
 }
 
 interface AddUsersAction {
   type: UsersActionType.ADD_USER;
-  payload: IUser[];
+  payload: IUser;
 }
 
 export type UsersAction = GetUsersAction | DeleteUsersAction | AddUsersAction;
